@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css"> <!-- Vous pouvez créer un fichier CSS séparé pour les styles -->
     <link rel="icon" href="cherax.png" type="image/png">
 
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +16,15 @@
             box-sizing: border-box;
             background-color: #ffffff; /* Couleur de fond */
             color: #000000; /* Couleur du texte */
+            /* Ajout du fond d'écran animé */
+            background-image: url('animé.gif');
+            background-size: cover;
+            animation: animateBackground 10s infinite;
+        }
+
+        @keyframes animateBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
         }
 
         header {
