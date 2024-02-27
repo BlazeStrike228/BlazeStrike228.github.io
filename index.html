@@ -16,17 +16,15 @@
             box-sizing: border-box;
             background-color: #ffffff; /* Couleur de fond */
             color: #000000; /* Couleur du texte */
-            overflow: hidden; /* Pour éviter que la vidéo ne dépasse de l'écran */
+            /* Ajout du fond d'écran animé */
+            background-image: url('animé.gif');
+            background-size: cover;
+            animation: animateBackground 10s infinite;
         }
 
-        #background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajuster la vidéo pour couvrir toute la zone */
-            z-index: -1; /* Placer la vidéo en arrière-plan */
+        @keyframes animateBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
         }
 
         header {
@@ -34,20 +32,65 @@
             color: #000000; /* Couleur du texte de l'en-tête */
             padding: 30px;
             text-align: center;
-            position: relative; /* Ajout de position relative pour empêcher le chevauchement */
-            z-index: 1; /* Assurez-vous que le contenu reste au-dessus de la vidéo */
         }
 
-        /* Les autres styles CSS restent inchangés */
+        header h1 {
+            margin-bottom: 10px; /* Espace en bas du titre h1 */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #000000; /* Couleur de fond de la barre de navigation */
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff; /* Couleur du texte des liens de navigation */
+            padding: 10px;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #ffffff; /* Couleur de fond au survol des liens de navigation */
+            color: #000000; /* Couleur du texte au survol des liens de navigation */
+        }
+
+        main section {
+            margin: 20px; /* Espace autour des sections principales */
+            padding: 20px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            background-color: #ffffff; /* Couleur de fond des sections principales */
+            color: #000000; /* Couleur du texte des sections principales */
+        }
+
+        footer {
+            text-align: center;
+            background-color: #ffffff; /* Couleur de fond du pied de page */
+            color: #000000; /* Couleur du texte du pied de page */
+            padding: 15px;
+        }
+
+        #logo {
+            max-width: 100px; /* Ajustez la taille de votre logo */
+            display: block;
+            margin: 0 auto; /* Centrez le logo horizontalement */
+        }
+
+        #discord-link img {
+            max-width: 50px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
-
-    <!-- Ajout de la balise video pour la vidéo de fond -->
-    <video autoplay muted loop id="background-video">
-        <source src="animé.webm" type="video/webm">
-        Your browser does not support the video tag.
-    </video>
 
     <header>
         <img src="cherax.png" alt="Logo" id="logo">
