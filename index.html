@@ -103,17 +103,32 @@
 
     <main>
 
-<section id="lobby-pc">
-    <h2>Lobby PC</h2>
-    <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
-    <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
-    <!-- Formulaire d'achat -->
-    <form action="process_achat.php" method="post">
-        <input type="hidden" name="produit" value="Lobby PC">
-        <input type="hidden" name="prix" value="20">
-        <button type="submit">Acheter (20€)</button>
-    </form>
-</section>
+        <section id="lobby-pc">
+            <h2>Lobby PC</h2>
+            <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
+            <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
+        
+            <!-- Formulaire de paiement simplifié -->
+            <section id="paiement">
+                <h2>Informations de paiement</h2>
+                <form action="process_paiement.php" method="post">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required><br>
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" required><br>
+                    <label for="mode_paiement">Mode de paiement :</label>
+                    <select id="mode_paiement" name="mode_paiement" required>
+                        <option value="">Choisir un mode de paiement</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="Visa">Visa</option>
+                        <option value="PayPal">PayPal</option>
+                        <!-- Ajoutez d'autres options de mode de paiement au besoin -->
+                    </select><br>
+                    <button type="submit">Payer (20€)</button>
+                </form>
+            </section>
+        </section>
+        
 
  
 
