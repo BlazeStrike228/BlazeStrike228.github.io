@@ -1,47 +1,25 @@
 <?php
-require __DIR__ . '/twilio-php-main/src/Twilio/autoload.php'; // Chargement de la bibliothèque Twilio
-
-use Twilio\Rest\Client;
-
-// Vos informations Twilio
-$sid = 'Votre_SID_Twilio';
-$token = 'Votre_token_Twilio';
-$twilio_number = 'Votre_numero_Twilio';
-
-// Processus de paiement
+// Vérifier si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérer les données du formulaire
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mode_paiement = $_POST['mode_paiement'];
+    // Vérifier si les données sont présentes dans la requête POST
+    if (isset($_POST['nom']) && isset($_POST['discord'])) {
+        // Récupérer les données du formulaire
+        $nom = $_POST['nom'];
+        $discord = $_POST['discord'];
 
-    // Validation des données (vous pouvez ajouter d'autres validations si nécessaire)
-    if ($nom && $prenom && $mode_paiement) {
-        // Création du corps du message
-        $message = "Nouveau paiement reçu!\n";
-        $message .= "Nom: $nom\n";
-        $message .= "Prénom: $prenom\n";
-        $message .= "Mode de paiement: $mode_paiement";
+        // Traitement des données (vous pouvez effectuer des opérations supplémentaires ici)
+        // Par exemple, enregistrement dans une base de données ou envoi par e-mail
 
-        // Initialisation du client Twilio
-        $client = new Client($sid, $token);
-
-        try {
-            // Envoi du message
-            $client->messages->create(
-                'whatsapp:+33699683617', // Votre numéro Twilio
-                array(
-                    'from' => 'whatsapp:' . $twilio_number,
-                    'body' => $message
-                )
-            );
-
-            echo "Message envoyé avec succès.";
-        } catch (Exception $e) {
-            echo "Une erreur s'est produite : " . $e->getMessage();
-        }
+        // Exemple d'affichage des données récupérées
+        echo "<h2>Données reçues :</h2>";
+        echo "<p>Nom : $nom</p>";
+        echo "<p>Discord : $discord</p>";
     } else {
-        echo "Erreur : Veuillez remplir tous les champs du formulaire de paiement.";
+        // Si les données ne sont pas présentes, afficher un message d'erreur
+        echo "Erreur : Veuillez remplir tous les champs du formulaire.";
     }
+} else {
+    // Si la méthode de requête n'est pas POST, afficher un message d'erreur
+    echo "Erreur : La méthode de requête n'est pas valide.";
 }
 ?>
