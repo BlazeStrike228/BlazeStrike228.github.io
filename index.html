@@ -103,11 +103,18 @@
 
     <main>
 
-        <section id="lobby-pc">
-           <h2>Lobby PC</h2>
-           <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
-           <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
-        </section>
+<section id="lobby-pc">
+    <h2>Lobby PC</h2>
+    <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
+    <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
+    <!-- Formulaire d'achat -->
+    <form action="process_achat.php" method="post">
+        <input type="hidden" name="produit" value="Lobby PC">
+        <input type="hidden" name="prix" value="20">
+        <button type="submit">Acheter (20€)</button>
+    </form>
+</section>
+
  
 
         <section id="compte-pc">
