@@ -81,6 +81,43 @@
             vertical-align: middle;
             margin-left: 5px;
         }
+
+        /* Styles pour les onglets */
+        .tab {
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #4b0082;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .tab button:hover {
+            background-color: #9400d3;
+        }
+
+        .tab button.active {
+            background-color: #9400d3;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            border: 1px solid #4b0082;
+            background-color: #6a5acd;
+            color: #000000;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +130,7 @@
 
     <nav>
         <ul>
-            <li><a href="#Mon activité">Mon activité</a></li>
+            <li><a href="#Mon_activité">Mon activité</a></li>
             <li><a href="#lobby-pc">Lobby PC</a></li>
             <li><a href="#compte-pc"> Compte PC</a></li>
             <li><a href="#services-comptes">Services Comptes</a></li>
@@ -102,32 +139,31 @@
     </nav>
 
     <main>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Mon_activité')" id="defaultOpen">Mon activité</button>
+            <button class="tablinks" onclick="openTab(event, 'lobby-pc')">Lobby PC</button>
+            <button class="tablinks" onclick="openTab(event, 'compte-pc')">Compte PC</button>
+            <button class="tablinks" onclick="openTab(event, 'services-comptes')">Services Comptes</button>
+            <button class="tablinks" onclick="openTab(event, 'compte-a-vendre')">Compte à vendre</button>
+        </div>
 
-        
-        <section id="Mon activité">
-           <h2>Mon activité</h2>
-           <p>Je vends des comptes GTA 5 avec des personnages, objets et véhicules uniques. Je trouve et sécurise ces comptes avant de les proposer à la vente sur ma plateforme en ligne. J'interagis avec les clients pour répondre à leurs questions et garantir des transactions transparentes. Mon objectif est de fournir une expérience client satisfaisante tout en respectant les politiques du jeu.</p>
+        <section id="Mon_activité" class="tabcontent">
+            <h2>Mon activité</h2>
+            <p>Je vends des comptes GTA 5 avec des personnages, objets et véhicules uniques. Je trouve et sécurise ces comptes avant de les proposer à la vente sur ma plateforme en ligne. J'interagis avec les clients pour répondre à leurs questions et garantir des transactions transparentes. Mon objectif est de fournir une expérience client satisfaisante tout en respectant les politiques du jeu.</p>
         </section>
 
-        <section id="lobby-pc">
-           <h2>Lobby PC</h2>
-           <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
-           <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
+        <section id="lobby-pc" class="tabcontent">
+            <h2>Lobby PC</h2>
+            <p>Un lobby PC est un compte avec plein d'argent, des voitures, y compris des Deluxo, et tout débloqué.</p>
+            <p>Les comptes lobby sont disponibles au prix de 20 euros.</p>
         </section>
- 
 
-        <section id="compte-pc">
+        <section id="compte-pc" class="tabcontent">
             <h2>Compte PC</h2>
             <p>Les comptes PC sont des comptes vierges avec 25 millions ajoutés directement. Les comptes normaux coûtent 15 euros avec un peu de voitures et 25 millions de dollars sur le compte.</p>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Contactez-nous sur notre discord, le lien se trouve tout en bas du site. Veuillez nous contacter sur ce numéro de téléphone : 07 69 68 36 17 et 06 69 52 90 82</p>
-            <p>Si le numéro ne marche pas, notre discord sera mis ci-dessous à la fin ainsi que le tiktok.</p>
-        </section>
-
-        <section id="services-comptes">
+        <section id="services-comptes" class="tabcontent">
             <h2>Services Comptes PC</h2>
             <p>Les services pour les comptes GTA varient selon le choix de la personne :</p>
             <ul>
@@ -137,26 +173,20 @@
             </ul>
         </section>
 
- <section id="compte à vendre">
-    <h2>Compte à vendre</h2>
-    <p>Un compte est à vendre sur PC pour le prix de 15€ avec 37,541,254 millions de dollars, ateliers auto et salle d'arcades full deluxo.</p>
-    <p>Les ateliers auto et la salle d'arcades sont full deluxo. Les sous-sols de boîte de nuit ont des voitures dans le genre des F1 et un karting.</p>
-    
-    <!-- Ajoutez les photos du compte ici -->
-    <a href="deluxo1.png" target="_blank">
-        <img src="deluxo1.png" alt="salle d'arcades" style="max-width: 400px;">
-    </a>
-    
-    <a href="deluxo2.png" target="_blank">
-        <img src="deluxo2.png" alt="salle d'arcades" style="max-width: 400px;">
-    </a>
-    
-    <a href="deluxoatelier1.png" target="_blank">
-        <img src="deluxoatelier1.png" alt="ateliers auto" style="max-width: 400px;">
-    </a>
-</section>
-
-
+        <section id="compte-a-vendre" class="tabcontent">
+            <h2>Compte à vendre</h2>
+            <p>Un compte est à vendre sur PC pour le prix de 15€ avec 37,541,254 millions de dollars, ateliers auto et salle d'arcades full deluxo.</p>
+            <p>Les ateliers auto et la salle d'arcades sont full deluxo. Les sous-sols de boîte de nuit ont des voitures dans le genre des F1 et un karting.</p>
+            <a href="deluxo1.png" target="_blank">
+                <img src="deluxo1.png" alt="salle d'arcades" style="max-width: 400px;">
+            </a>
+            <a href="deluxo2.png" target="_blank">
+                <img src="deluxo2.png" alt="salle d'arcades" style="max-width: 400px;">
+            </a>
+            <a href="deluxoatelier1.png" target="_blank">
+                <img src="deluxoatelier1.png" alt="ateliers auto" style="max-width: 400px;">
+            </a>
+        </section>
     </main>
 
     <footer>
@@ -170,5 +200,22 @@
         </p>
     </footer>
 
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
 </html>
